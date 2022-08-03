@@ -15,6 +15,9 @@
 		E234DDEE289A921F00971544 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234DDED289A921F00971544 /* UserDefaultsManager.swift */; };
 		E234DDF2289A943A00971544 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234DDF1289A943A00971544 /* SplashView.swift */; };
 		E234DDF4289A944400971544 /* MainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234DDF3289A944400971544 /* MainListView.swift */; };
+		E234DDF6289A94EA00971544 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234DDF5289A94EA00971544 /* Reference.swift */; };
+		E234DDF9289B164700971544 /* ViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234DDF8289B164700971544 /* ViewExt.swift */; };
+		E234DDFD289B168600971544 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234DDFC289B168600971544 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		E234DDED289A921F00971544 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		E234DDF1289A943A00971544 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		E234DDF3289A944400971544 /* MainListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListView.swift; sourceTree = "<group>"; };
+		E234DDF5289A94EA00971544 /* Reference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reference.swift; sourceTree = "<group>"; };
+		E234DDF8289B164700971544 /* ViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExt.swift; sourceTree = "<group>"; };
+		E234DDFC289B168600971544 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,7 @@
 		E234DDD5289A912700971544 /* TODOList */ = {
 			isa = PBXGroup;
 			children = (
+				E234DDF5289A94EA00971544 /* Reference.swift */,
 				E234DDE4289A916E00971544 /* Application */,
 				E234DDE9289A91D500971544 /* ViewModels */,
 				E234DDE6289A919300971544 /* Models */,
@@ -89,8 +96,9 @@
 		E234DDE5289A917500971544 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E234DDEF289A942300971544 /* Splash */,
 				E234DDF0289A942600971544 /* Main */,
+				E234DDEF289A942300971544 /* Splash */,
+				E234DDFA289B166A00971544 /* Memo */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -114,6 +122,7 @@
 		E234DDEC289A921200971544 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E234DDF7289B163A00971544 /* Extensions */,
 				E234DDED289A921F00971544 /* UserDefaultsManager.swift */,
 			);
 			path = Utils;
@@ -130,9 +139,25 @@
 		E234DDF0289A942600971544 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				E234DDF3289A944400971544 /* MainListView.swift */,
+				E234DDFC289B168600971544 /* MainView.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		E234DDF7289B163A00971544 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E234DDF8289B164700971544 /* ViewExt.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E234DDFA289B166A00971544 /* Memo */ = {
+			isa = PBXGroup;
+			children = (
+				E234DDF3289A944400971544 /* MainListView.swift */,
+			);
+			path = Memo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,8 +231,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E234DDEE289A921F00971544 /* UserDefaultsManager.swift in Sources */,
+				E234DDFD289B168600971544 /* MainView.swift in Sources */,
 				E234DDF4289A944400971544 /* MainListView.swift in Sources */,
+				E234DDF6289A94EA00971544 /* Reference.swift in Sources */,
 				E234DDE8289A91A100971544 /* ListItemModel.swift in Sources */,
+				E234DDF9289B164700971544 /* ViewExt.swift in Sources */,
 				E234DDF2289A943A00971544 /* SplashView.swift in Sources */,
 				E234DDEB289A91DF00971544 /* ListViewModel.swift in Sources */,
 				E234DDD7289A912700971544 /* TODOListApp.swift in Sources */,

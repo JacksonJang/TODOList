@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct SplashView: View {
-    @StateObject var listViewModel = ListViewModel()
-    
     var body: some View {
-        NavigationView {
-            MainListView()
-                .environmentObject(listViewModel)
+        ZStack{
+            Text("Splash")
+                .font(.system(size: 50))
         }
     }
 }
