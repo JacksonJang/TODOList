@@ -11,18 +11,9 @@ struct MainView: View {
     @StateObject var listViewModel = ListViewModel()
     
     @State var isRun:Bool = false
-    @State var opacity:CGFloat = 0.1
+    @State var opacity:CGFloat = 0
     
-    let splashView = SplashView()
-    var timer: Timer {
-        Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) {_ in
-            self.opacity += 0.01
-            
-            if self.opacity == 1.0 {
-                timer.invalidate()
-            }
-        }
-    }
+    let splashTime:CGFloat = 2.5
     
     var body: some View {
         NavigationView{
@@ -31,15 +22,30 @@ struct MainView: View {
                     .environmentObject(listViewModel)
                     .navigationBarHidden(true)
             } else {
-                splashView
-                    .navigationBarHidden(true)
-                    .opacity(opacity)
+                VStack {
+                    VStack {
+                        Text("Splash")
+                            .font(.system(size: 50, weight: .bold))
+                            .opacity(opacity)
+                            
+                    }
+                }
+                .navigationBarHidden(true)
+                .onAppear(){
+                    DispatchQueue.main.async {
+                        withAnimation(.easeInOut(duration: splashTime)){
+                            self.opacity = 1.0
+                        }
+                    }
+                    
+                    //현재 withAnimation의 completion이 없어서 다음과 같이 진행
+                    DispatchQueue.main.asyncAfter(deadline: .now() + splashTime + 2.0) {
+                        self.isRun = true
+                    }
+                }
             }
         }
-        .onAppear(){
-            print("MainView onAppear")
-            _ = timer
-        }
+        
     }
 }
 
