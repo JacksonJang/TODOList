@@ -11,7 +11,16 @@ struct MainListView: View {
     @EnvironmentObject var listViewModel: ListViewModel
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            List(listViewModel.items){ item in
+                VStack {
+                    Text(item.title)
+                }
+                .listRowSeparator(.hidden)
+            }
+            .listStyle(.plain)
+        }
+        
     }
 }
 

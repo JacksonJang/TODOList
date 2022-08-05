@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ListItemModel: Codable {
+struct ListItemModel: Codable, Identifiable {
     let id: Int
     let title: String
     let content: String
