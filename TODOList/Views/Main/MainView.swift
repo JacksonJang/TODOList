@@ -10,17 +10,46 @@ import SwiftUI
 struct MainView: View {
     @StateObject var listViewModel = ListViewModel()
     
-    @State var isRun:Bool = false
+    @State var isRun:Bool = true
     @State var opacity:CGFloat = 0
+    @State var memoField:String = ""
     
     let splashTime:CGFloat = 2.5
     
     var body: some View {
         NavigationView{
             if isRun {
-                MainListView()
-                    .environmentObject(listViewModel)
-                    .navigationBarHidden(true)
+                VStack {
+                    HStack {
+                        HStack{
+                            TextField("메모할 내용을 적어주세요.", text: $memoField)
+                                .frame(height:50)
+                                .padding(.leading, 10)
+                        }
+                        .frame(maxWidth:.infinity)
+                        .background(Color(UIColor.secondarySystemBackground))
+                        .cornerRadius(10)
+                        
+                        
+                        Button(action: {
+                            print("input text : \(memoField)")
+                        }, label: {
+                            Text("저장")
+                                .foregroundColor(.white)
+                                .font(.headline)
+                                .frame(height: 50)
+                            
+                        })
+                        .frame(width:50)
+                        .background(Color.accentColor)
+                        .cornerRadius(10)
+                    }
+                    .padding()
+                    
+                    MainListView()
+                        .environmentObject(listViewModel)
+                        .navigationBarHidden(true)
+                }
             } else {
                 VStack {
                     VStack {
