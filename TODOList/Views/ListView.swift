@@ -17,6 +17,11 @@ struct ListView: View {
             }
         }
         .navigationTitle("메모 리스트")
+        .navigationBarItems(
+            trailing: NavigationLink("추가",
+            destination: AddView())
+        )
+        .listStyle(.plain)
     }
 }
 

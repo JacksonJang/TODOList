@@ -18,7 +18,8 @@ class ListViewModel: ObservableObject {
         self.items = UserDefaultsManager.shared.getMemoList()
     }
     
-    public func saveItem(item:ListItem) {
+    public func saveItem(item:ListItem, completion:(()->Void)? = nil) {
         self.items.append(item)
+        completion?()
     }
 }
