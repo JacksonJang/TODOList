@@ -10,12 +10,15 @@ import SwiftUI
 struct ListView: View {
     @EnvironmentObject var viewModel:ListViewModel
     
+    @State var isEditMode:EditMode = .active
+    
     var body: some View {
         List {
             ForEach(viewModel.items){ item in
                 Text(item.title)
             }
         }
+        .environment(\.editMode, self.$isEditMode)
         .navigationTitle("메모 리스트")
         .navigationBarItems(
             trailing: NavigationLink("추가",

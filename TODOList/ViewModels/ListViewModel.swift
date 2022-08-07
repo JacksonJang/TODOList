@@ -20,6 +20,13 @@ class ListViewModel: ObservableObject {
     
     public func saveItem(item:ListItem, completion:(()->Void)? = nil) {
         self.items.append(item)
-        completion?()
+        
+        if let data = try? JSONEncoder().encode(items) {
+            UserDefaultsManager.shared.save(type: .memoList, value: data)
+            print("Register todo : \(item.title)")
+            completion?()
+        } else {
+            print("Failed to save")
+        }
     }
 }
