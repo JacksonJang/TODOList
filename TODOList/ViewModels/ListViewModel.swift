@@ -2,27 +2,23 @@
 //  ListViewModel.swift
 //  TODOList
 //
-//  Created by 장효원 on 2022/08/03.
+//  Created by 장효원 on 2022/08/07.
 //
 
 import Foundation
 
 class ListViewModel: ObservableObject {
-    @Published var items:[ListItemModel] = [
-        ListItemModel(id: 1, title: "test", content: "content"),
-        ListItemModel(id: 2, title: "test2", content: "content2"),
-        ListItemModel(id: 3, title: "test3", content: "content3")
-    ]
+    @Published var items: [ListItem] = []
     
     init() {
-        
+        getItems()
     }
     
-    private func getList() {
-        print("getList()")
+    private func getItems() {
+        self.items = UserDefaultsManager.shared.getMemoList()
     }
     
-    private func saveList() {
-        
+    public func saveItem(item:ListItem) {
+        self.items.append(item)
     }
 }
