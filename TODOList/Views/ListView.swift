@@ -10,21 +10,33 @@ import SwiftUI
 struct ListView: View {
     @EnvironmentObject var viewModel:ListViewModel
     
-    @State var isEditMode:EditMode = .active
-    
     var body: some View {
         List {
             ForEach(viewModel.items){ item in
                 Text(item.title)
             }
+            .onDelete(perform: { indexSet in
+                remove(indexSet: indexSet)
+            })
+            .onMove(perform: { indexSet, toIndex in
+                move(from: indexSet, to: toIndex)
+            })
         }
-        .environment(\.editMode, self.$isEditMode)
         .navigationTitle("메모 리스트")
         .navigationBarItems(
+            leading: EditButton(),
             trailing: NavigationLink("추가",
             destination: AddView())
         )
         .listStyle(.plain)
+    }
+    
+    func remove(indexSet: IndexSet) {
+        self.viewModel.removeItem(indexSet: indexSet)
+    }
+    
+    func move(from indexSet:IndexSet,to toIndex:Int) {
+        self.viewModel.move(indexSet: indexSet, toIndex: toIndex)
     }
 }
 
